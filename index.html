@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>JF. ALONSO</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="HALO photography portfolio template">
 	<meta name="keywords" content="photography, portfolio, onepage, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Favicon -->   
+	<!-- Favicon -->
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="css/flaticon.css"/>
-	<link rel="stylesheet" href="css/animate.css"/>
-	<link rel="stylesheet" href="css/owl.carousel.css"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/flaticon.css" />
+	<link rel="stylesheet" href="css/animate.css" />
+	<link rel="stylesheet" href="css/owl.carousel.css" />
 	<link rel="stylesheet" type="text/css" href="css/base.css" />
 	<link rel="stylesheet" type="text/css" href="css/demo4.css" />
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/modal-video@2.4.2/css/modal-video.min.css" />
-	<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
-	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.jsdelivr.net/npm/modal-video@2.4.2/css/modal-video.min.css" />
+	<script>document.documentElement.className = "js"; var supportsCssVars = function () { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e }; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+	<link rel="stylesheet" href="css/style.css" />
 
-	    <!-- Facebook OG -->
+	<!-- Facebook OG -->
 	<meta property="og:title" content="curtains.js | Basic plane example">
 	<meta property="og:type" content="website">
 	<meta property="og:description" content="A basic WebGL plane bound to a HTML DOM element with curtains.js">
@@ -35,30 +37,30 @@
 	<![endif]-->
 
 </head>
-		<style>
+<style>
+	#canvas {
+		/* make the canvas wrapper fits the document */
+		position: absolute;
+		top: 10vh;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 2000px !important;
+	}
 
-			#canvas {
-				/* make the canvas wrapper fits the document */
-				position: absolute;
-				top: 10vh;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				height: 2000px!important;
-			}
+	.plane {
+		/* define the size of your plane */
+		width: 80vw;
+		height: 60vh;
+		margin: auto;
+	}
 
-			.plane {
-				/* define the size of your plane */
-				width: 80vw;
-				height: 60vh;
-				margin: auto;
-			}
+	.plane img {
+		/* hide the img element */
+		display: none;
+	}
+</style>
 
-			.plane img {
-				/* hide the img element */
-				display: none;
-			}
-		</style>
 <body>
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -66,10 +68,14 @@
 	</div>
 
 	<!-- Modal -->
-	<div class="modal fade border-0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog m-0 border-0" style="margin-left: 5vw!important; margin-top: 20vh!important; width: 80vw;!important" role="document">
-			<div class="modal-content m-0" style="margin-left: 5vw!important; margin-top: 20vh!important; width: 80vw;!important">
-				<iframe src="https://player.vimeo.com/video/386548039" class="border-0" style="position:absolute;" height="800" width="100%" allow="autoplay; fullscreen" allowfullscreen></iframe>
+	<div class="modal fade border-0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog m-0 border-0"
+			style="margin-left: 5vw!important; margin-top: 20vh!important; width: 80vw;!important" role="document">
+			<div class="modal-content m-0"
+				style="margin-left: 5vw!important; margin-top: 20vh!important; width: 80vw;!important">
+				<iframe src="https://player.vimeo.com/video/386548039" class="border-0" style="position:absolute;"
+					height="800" width="100%" allow="autoplay; fullscreen" allowfullscreen></iframe>
 			</div>
 		</div>
 	</div>
@@ -114,29 +120,34 @@
 	<section class="intro-section sp-pad spad carousel slide" id="carouselExampleControls" data-ride="carousel">
 		<div class="container-fluid carousel-inner row">
 			<div class="row h-50 carousel-item active">
-				<h1 class="text-center text-light carousel_title text-uppercase" style="color: rgba(255,255,255, 0.4)!important">FESTIVALE MELTIN'ART 2019</h1>
+				<h1 class="text-center text-light carousel_title text-uppercase"
+					style="color: rgba(255,255,255, 0.4)!important">FESTIVALE MELTIN'ART 2019</h1>
 				<div class="col-xl-10 offset-xl-1 ripple-container">
 					<div id="canvas"></div>
 					<div class="plane">
-						<img class="project-preview carousel_image" src="https://i.vimeocdn.com/video/851166824_780x439.jpg" alt="">
+						<img class="project-preview carousel_image"
+							src="https://i.vimeocdn.com/video/851166824_780x439.jpg" alt="">
 					</div>
 				</div>
 			</div>
-				<a class="carousel-control-next  play h1 text-light h1" type="button" data-toggle="modal" data-target="#exampleModal" style="top: 50%;left: 50%;transform: translate(-50%, -50%);">
-					<i class="fa fa-play"></i>
-				</a>
-				<a class="carousel-control-next next" href="#carouselExampleControls" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>
+			<a class="carousel-control-next  play h1 text-light h1" type="button" data-toggle="modal"
+				data-target="#exampleModal" style="top: 50%;left: 50%;transform: translate(-50%, -50%);">
+				<i class="fa fa-play"></i>
+			</a>
+			<a class="carousel-control-next next" href="#carouselExampleControls" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
 		</div>
 	</section>
 	<!-- Intro section end -->
 
 
 	<!-- Portfolio section start -->
-	<section class="portfolio-section" id="portfolio">
+	<section class="portfolio-section pb-0 mb-0" id="portfolio">
+		<span class="sp-sub-title pl-3">Categorie</span>
+		<h1 class="sp-title pl-3 text-light h1">Clip musicaux</h1>
 		<div class="portfolio-warp">
 			<!-- single item -->
 			<div class="single-portfolio set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg">
@@ -146,9 +157,12 @@
 				</a>
 			</div>
 			<!-- single item -->
-			<div class="single-portfolio set-bg" data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg">
+			<div class="single-portfolio set-bg"
+				data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg">
 				<a href="single-work.html" class="portfolio-info">
-					<div class="pfbg set-bg" data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg"></div>
+					<div class="pfbg set-bg"
+						data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg">
+					</div>
 					<h5 class="text-uppercase">Koba Lad / 100 Blaze</h5>
 				</a>
 			</div>
@@ -159,69 +173,158 @@
 					<h5 class="text-uppercase">FESTIVALE MELTIN'ART 2019</h5>
 				</a>
 			</div>
-			<!-- single item -->
-			<div class="single-portfolio set-bg" data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg">
-				<a href="single-work.html" class="portfolio-info">
-					<div class="pfbg set-bg" data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg"></div>
-					<h5 class="text-uppercase">Koba Lad / 100 Blaze</h5>
-				</a>
-			</div>
-						<!-- single item -->
-			<div class="single-portfolio set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg">
-				<a href="single-work.html" class="portfolio-info">
-					<div class="pfbg set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg"></div>
-					<h5 class="text-uppercase">FESTIVALE MELTIN'ART 2019</h5>
-				</a>
-			</div>
-			<!-- single item -->
-			<div class="single-portfolio set-bg" data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg">
-				<a href="single-work.html" class="portfolio-info">
-					<div class="pfbg set-bg" data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg"></div>
-					<h5 class="text-uppercase">Koba Lad / 100 Blaze</h5>
-				</a>
-			</div>
-						<!-- single item -->
-			<div class="single-portfolio set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg">
-				<a href="single-work.html" class="portfolio-info">
-					<div class="pfbg set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg"></div>
-					<h5 class="text-uppercase">FESTIVALE MELTIN'ART 2019</h5>
-				</a>
-			</div>
-			<!-- single item -->
-			<div class="single-portfolio set-bg" data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg">
-				<a href="single-work.html" class="portfolio-info">
-					<div class="pfbg set-bg" data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg"></div>
-					<h5 class="text-uppercase">Koba Lad / 100 Blaze</h5>
-				</a>
-			</div>
-						<!-- single item -->
-			<div class="single-portfolio set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg">
-				<a href="single-work.html" class="portfolio-info">
-					<div class="pfbg set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg"></div>
-					<h5 class="text-uppercase">FESTIVALE MELTIN'ART 2019</h5>
-				</a>
-			</div>
-			<!-- single item -->
-			<div class="single-portfolio set-bg" data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg">
-				<a href="single-work.html" class="portfolio-info">
-					<div class="pfbg set-bg" data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg"></div>
-					<h5 class="text-uppercase">Koba Lad / 100 Blaze</h5>
-				</a>
-			</div>
+
 		</div>
 		<div class="clearfix"></div>
+		<div class="sp-pad next-portfolio-link">
+			<a href="#" class="arrow-btn text-light" style="font-size: 40px">
+				<i class="fa fa-angle-right"></i>
+				<i class="fa fa-angle-right"></i>
+				<i class="fa fa-angle-right"></i>
+			</a>
+		</div>
 	</section>
 	<!-- Portfolio section end -->
 
+
+	<!-- Portfolio section start -->
+	<section class="portfolio-section pb-0 mb-0" id="portfolio">
+		<span class="sp-sub-title pl-3">Categorie</span>
+		<h1 class="sp-title pl-3 text-light h1">Evenements</h1>
+		<div class="portfolio-warp">
+			<!-- single item -->
+			<div class="single-portfolio set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg">
+				<a href="single-work.html" class="portfolio-info">
+					<div class="pfbg set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg"></div>
+					<h5 class="text-uppercase">FESTIVALE MELTIN'ART 2019</h5>
+				</a>
+			</div>
+			<!-- single item -->
+			<div class="single-portfolio set-bg"
+				data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg">
+				<a href="single-work.html" class="portfolio-info">
+					<div class="pfbg set-bg"
+						data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg">
+					</div>
+					<h5 class="text-uppercase">Koba Lad / 100 Blaze</h5>
+				</a>
+			</div>
+			<!-- single item -->
+			<div class="single-portfolio set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg">
+				<a href="single-work.html" class="portfolio-info">
+					<div class="pfbg set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg"></div>
+					<h5 class="text-uppercase">FESTIVALE MELTIN'ART 2019</h5>
+				</a>
+			</div>
+
+		</div>
+		<div class="clearfix"></div>
+		<div class="sp-pad next-portfolio-link">
+			<a href="#" class="arrow-btn text-light" style="font-size: 40px">
+				<i class="fa fa-angle-right"></i>
+				<i class="fa fa-angle-right"></i>
+				<i class="fa fa-angle-right"></i>
+			</a>
+		</div>
+	</section>
+	<!-- Portfolio section end -->
+
+
+
+	<!-- Portfolio section start -->
+	<section class="portfolio-section pb-0 mb-0" id="portfolio">
+		<span class="sp-sub-title pl-3">Categorie</span>
+		<h1 class="sp-title pl-3 text-light h1">Publicitées</h1>
+		<div class="portfolio-warp">
+			<!-- single item -->
+			<div class="single-portfolio set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg">
+				<a href="single-work.html" class="portfolio-info">
+					<div class="pfbg set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg"></div>
+					<h5 class="text-uppercase">FESTIVALE MELTIN'ART 2019</h5>
+				</a>
+			</div>
+			<!-- single item -->
+			<div class="single-portfolio set-bg"
+				data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg">
+				<a href="single-work.html" class="portfolio-info">
+					<div class="pfbg set-bg"
+						data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg">
+					</div>
+					<h5 class="text-uppercase">Koba Lad / 100 Blaze</h5>
+				</a>
+			</div>
+			<!-- single item -->
+			<div class="single-portfolio set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg">
+				<a href="single-work.html" class="portfolio-info">
+					<div class="pfbg set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg"></div>
+					<h5 class="text-uppercase">FESTIVALE MELTIN'ART 2019</h5>
+				</a>
+			</div>
+
+		</div>
+		<div class="clearfix"></div>
+		<div class="sp-pad next-portfolio-link">
+			<a href="#" class="arrow-btn text-light" style="font-size: 40px">
+				<i class="fa fa-angle-right"></i>
+				<i class="fa fa-angle-right"></i>
+				<i class="fa fa-angle-right"></i>
+			</a>
+		</div>
+	</section>
+	<!-- Portfolio section end -->
+
+	<!-- Portfolio section start -->
+	<section class="portfolio-section pb-0 mb-0" id="portfolio">
+		<span class="sp-sub-title pl-3">Categorie</span>
+		<h1 class="sp-title pl-3 text-light h1">Reportage</h1>
+		<div class="portfolio-warp">
+			<!-- single item -->
+			<div class="single-portfolio set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg">
+				<a href="single-work.html" class="portfolio-info">
+					<div class="pfbg set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg"></div>
+					<h5 class="text-uppercase">FESTIVALE MELTIN'ART 2019</h5>
+				</a>
+			</div>
+			<!-- single item -->
+			<div class="single-portfolio set-bg"
+				data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg">
+				<a href="single-work.html" class="portfolio-info">
+					<div class="pfbg set-bg"
+						data-setbg="https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/musique/accuse-d-homophobie-le-rappeur-koba-lad-deprogramme-de-plusieurs-festivals-1674526/27298541-1-fre-FR/Accuse-d-homophobie-le-rappeur-Koba-LaD-deprogramme-de-plusieurs-festivals.jpg">
+					</div>
+					<h5 class="text-uppercase">Koba Lad / 100 Blaze</h5>
+				</a>
+			</div>
+			<!-- single item -->
+			<div class="single-portfolio set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg">
+				<a href="single-work.html" class="portfolio-info">
+					<div class="pfbg set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg"></div>
+					<h5 class="text-uppercase">FESTIVALE MELTIN'ART 2019</h5>
+				</a>
+			</div>
+
+		</div>
+		<div class="clearfix"></div>
+		<div class="sp-pad next-portfolio-link">
+			<a href="#" class="arrow-btn text-light" style="font-size: 40px">
+				<i class="fa fa-angle-right"></i>
+				<i class="fa fa-angle-right"></i>
+				<i class="fa fa-angle-right"></i>
+			</a>
+		</div>
+	</section>
+	<!-- Portfolio section end -->
 
 	<!-- Services section start -->
 	<section class="services-section spad" id="services">
 		<div class="container-fluid services-warp">
 			<div class="services-text">
 				<div class="container p-0">
-				<span class="sp-sub-title">Amazing studio</span>
+					<span class="sp-sub-title">Amazing studio</span>
 					<h3 class="sp-title">see What we offer</h3>
-					<p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada feugiat. Praesent malesuada congue magna at finibus. In hac habi tasse platea dictumst. Curabitur rhoncus auctor eleifend.</p>
+					<p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada feugiat. Praesent
+						malesuada congue magna at finibus. In hac habi tasse platea dictumst. Curabitur rhoncus auctor
+						eleifend.</p>
 					<a href="#" class="site-btn">Read More</a>
 				</div>
 			</div>
@@ -233,28 +336,32 @@
 								<div class="icon-box">
 									<i class="flaticon-video-camera"></i>
 									<h4>Video Footages</h4>
-									<p>Suspendisse dictum enim sit amet libero feugiat. Praesent malesuada congue magna at finibus. In hac habitasse platea dictumst. </p>
+									<p>Suspendisse dictum enim sit amet libero feugiat. Praesent malesuada congue magna
+										at finibus. In hac habitasse platea dictumst. </p>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="icon-box">
 									<i class="flaticon-photo-camera"></i>
 									<h4>Photo Shootings</h4>
-									<p>Congue magna at finibus. In hac habitasse platea dictumst. Curabitur rhoncus auctor eleifend. Fusce venenatis diam urna, eu pharetra arcu.</p>
+									<p>Congue magna at finibus. In hac habitasse platea dictumst. Curabitur rhoncus
+										auctor eleifend. Fusce venenatis diam urna, eu pharetra arcu.</p>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="icon-box">
 									<i class="flaticon-safebox"></i>
 									<h4>photo albums</h4>
-									<p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada feugiat. Praesent malesuada congue magna at finibus. </p>
+									<p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada
+										feugiat. Praesent malesuada congue magna at finibus. </p>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="icon-box">
 									<i class="flaticon-idea"></i>
 									<h4>Original ideas</h4>
-									<p>Praesent malesuada congue magna at finibus. In hac habitasse platea dictumst. Curabitur rhoncus auctor eleifend. Fusce venenatis diam urna.</p>
+									<p>Praesent malesuada congue magna at finibus. In hac habitasse platea dictumst.
+										Curabitur rhoncus auctor eleifend. Fusce venenatis diam urna.</p>
 								</div>
 							</div>
 						</div>
@@ -263,7 +370,7 @@
 			</div>
 		</div>
 		<div class="service-more-link">
-			<a href="#" class="arrow-btn">
+			<a href="#" class="arrow-btn text-light" style="font-size: 40px">
 				<i class="fa fa-angle-right"></i>
 				<i class="fa fa-angle-right"></i>
 				<i class="fa fa-angle-right"></i>
@@ -332,7 +439,7 @@
 				vVertexPosition = vertexPosition;
 			}
         </script>
-        <script id="plane-fs" type="x-shader/x-fragment">
+	<script id="plane-fs" type="x-shader/x-fragment">
 			precision mediump float;
 
 			// get our varyings
@@ -357,94 +464,95 @@
         </script>
 
 
-		<script type="text/javascript">
-            window.addEventListener("load", function() {
-				// set up our WebGL context and append the canvas to our wrapper
-				var webGLCurtain = new Curtains({
-                    container: "canvas"
-                });
-
-				// get our plane element
-				var planeElement = document.getElementsByClassName("plane")[0];
-
-				// set our initial parameters (basic uniforms)
-				var params = {
-					vertexShaderID: "plane-vs", // our vertex shader ID
-					fragmentShaderID: "plane-fs", // our framgent shader ID
-					uniforms: {
-						time: {
-							name: "uTime", // uniform name that will be passed to our shaders
-							type: "1f", // this means our uniform is a float
-							value: 0,
-						},
-					}
-				};
-
-				// create our plane mesh
-				var plane = webGLCurtain.addPlane(planeElement, params);
-
-				if(plane) {
-                    // set up our basic methods
-                    plane.onRender(function() { // fired at each requestAnimationFrame call
-                        plane.uniforms.time.value++; // update our time uniform value
-                    });
-                }
-
+	<script type="text/javascript">
+		window.addEventListener("load", function () {
+			// set up our WebGL context and append the canvas to our wrapper
+			var webGLCurtain = new Curtains({
+				container: "canvas"
 			});
-		</script>
 
+			// get our plane element
+			var planeElement = document.getElementsByClassName("plane")[0];
 
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141413267-1"></script>
-		<script>
-		  	window.dataLayer = window.dataLayer || [];
-		  	function gtag(){dataLayer.push(arguments);}
-		  	gtag('js', new Date());
+			// set our initial parameters (basic uniforms)
+			var params = {
+				vertexShaderID: "plane-vs", // our vertex shader ID
+				fragmentShaderID: "plane-fs", // our framgent shader ID
+				uniforms: {
+					time: {
+						name: "uTime", // uniform name that will be passed to our shaders
+						type: "1f", // this means our uniform is a float
+						value: 0,
+					},
+				}
+			};
 
-		  	gtag('config', 'UA-141413267-1');
-		</script>
-		<script>
-				let titles = ["Festival Meltin'art 2019", "Koba Lad / 100 Blaze"];
-				let image = 'https://images.vexels.com/media/users/3/131784/isolated/preview/a9ff82db0cf438516e13b8c3bf918a00-play-flat-icon-by-vexels.png'; 
-				
-				let previewSources = [
-				'https://i.vimeocdn.com/video/851166824_780x439.jpg',
-				'https://instagram.fkun1-1.fna.fbcdn.net/v/t51.2885-15/e35/58019630_2376714979273965_2668383843384919178_n.jpg?_nc_ht=instagram.fkun1-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=qwUyQxAJU9AAX9SGsr2&oh=4eb5aeb86262ebdf518ce6eb102237e2&oe=5E9AC7E4'
-				];
+			// create our plane mesh
+			var plane = webGLCurtain.addPlane(planeElement, params);
 
-				let videoSources = [
-					'https://player.vimeo.com/video/386548039',
-					'https://player.vimeo.com/video/332690072'
-				];
-
-				let carousel_index = 0;
-				
-				$('.next').click(function () {
-					carousel_index += 1;
-					if (carousel_index >  titles.length - 1) {
-						carousel_index = 0;
-					}
-					$('.carousel_title').html(titles[carousel_index]);
-					$('.carousel_image').attr('src', previewSources[carousel_index]);
-					$('iframe').attr('src', videoSources[carousel_index]);
-					reload_js('js/curtains.js');
+			if (plane) {
+				// set up our basic methods
+				plane.onRender(function () { // fired at each requestAnimationFrame call
+					plane.uniforms.time.value++; // update our time uniform value
 				});
-
-				$('.carousel-control-prev').click(function () {
-					if (carousel_index != 0) {
-						carousel_index -= 1;
-					}
-					$('.carousel_title').html(titles[carousel_index]);
-					$('.carousel_image').html(previewSources[carousel_index]);
-					$('iframe').attr('src', videoSources[carousel_index]);
-					reload_js('js/curtains.js');
-				});
-			
-			function reload_js(src) {
-				$('script[src="' + src + '"]').remove();
-				$('<script>').attr('src', src).appendTo('head');
 			}
-		</script>
+
+		});
+	</script>
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141413267-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-141413267-1');
+	</script>
+	<script>
+		let titles = ["Festival Meltin'art 2019", "Koba Lad / 100 Blaze"];
+		let image = 'https://images.vexels.com/media/users/3/131784/isolated/preview/a9ff82db0cf438516e13b8c3bf918a00-play-flat-icon-by-vexels.png';
+
+		let previewSources = [
+			'https://i.vimeocdn.com/video/851166824_780x439.jpg',
+			'https://instagram.fkun1-1.fna.fbcdn.net/v/t51.2885-15/e35/58019630_2376714979273965_2668383843384919178_n.jpg?_nc_ht=instagram.fkun1-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=qwUyQxAJU9AAX9SGsr2&oh=4eb5aeb86262ebdf518ce6eb102237e2&oe=5E9AC7E4'
+		];
+
+		let videoSources = [
+			'https://player.vimeo.com/video/386548039',
+			'https://player.vimeo.com/video/332690072'
+		];
+
+		let carousel_index = 0;
+
+		$('.next').click(function () {
+			carousel_index += 1;
+			if (carousel_index > titles.length - 1) {
+				carousel_index = 0;
+			}
+			$('.carousel_title').html(titles[carousel_index]);
+			$('.carousel_image').attr('src', previewSources[carousel_index]);
+			$('iframe').attr('src', videoSources[carousel_index]);
+			reload_js('js/curtains.js');
+		});
+
+		$('.carousel-control-prev').click(function () {
+			if (carousel_index != 0) {
+				carousel_index -= 1;
+			}
+			$('.carousel_title').html(titles[carousel_index]);
+			$('.carousel_image').html(previewSources[carousel_index]);
+			$('iframe').attr('src', videoSources[carousel_index]);
+			reload_js('js/curtains.js');
+		});
+
+		function reload_js(src) {
+			$('script[src="' + src + '"]').remove();
+			$('<script>').attr('src', src).appendTo('head');
+		}
+	</script>
 
 </body>
+
 </html>
