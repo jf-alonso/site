@@ -134,9 +134,11 @@
 				data-target="#exampleModal" style="top: 50%;left: 50%;transform: translate(-50%, -50%);">
 				<i class="fa fa-play"></i>
 			</a>
-			<a class="carousel-control-next next" href="#carouselExampleControls" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
+			<a class="carousel-control-next previous ml-5 position-absolute" style="left:0" href="#carouselExampleControls" role="button" data-slide="next">
+				<h1 class="text-light">PREVIOUS</h1>
+			</a>
+			<a class="carousel-control-next next ml-5" href="#carouselExampleControls" role="button" data-slide="next">
+				<h1 class="text-light">NEXT</h1>
 			</a>
 		</div>
 		</div>
@@ -177,7 +179,7 @@
 		</div>
 		<div class="clearfix"></div>
 		<div class="sp-pad next-portfolio-link">
-			<a href="#" class="arrow-btn text-light" style="font-size: 40px">
+			<a href="portfolio.html" class="arrow-btn text-light" style="font-size: 40px">
 				<i class="fa fa-angle-right"></i>
 				<i class="fa fa-angle-right"></i>
 				<i class="fa fa-angle-right"></i>
@@ -220,7 +222,7 @@
 		</div>
 		<div class="clearfix"></div>
 		<div class="sp-pad next-portfolio-link">
-			<a href="#" class="arrow-btn text-light" style="font-size: 40px">
+			<a href="portfolio.html" class="arrow-btn text-light" style="font-size: 40px">
 				<i class="fa fa-angle-right"></i>
 				<i class="fa fa-angle-right"></i>
 				<i class="fa fa-angle-right"></i>
@@ -264,7 +266,7 @@
 		</div>
 		<div class="clearfix"></div>
 		<div class="sp-pad next-portfolio-link">
-			<a href="#" class="arrow-btn text-light" style="font-size: 40px">
+			<a href="portfolio.html" class="arrow-btn text-light" style="font-size: 40px">
 				<i class="fa fa-angle-right"></i>
 				<i class="fa fa-angle-right"></i>
 				<i class="fa fa-angle-right"></i>
@@ -276,7 +278,7 @@
 	<!-- Portfolio section start -->
 	<section class="portfolio-section pb-0 mb-0" id="portfolio">
 		<span class="sp-sub-title pl-3">Categorie</span>
-		<h1 class="sp-title pl-3 text-light h1">Reportage</h1>
+		<h1 class="sp-title pl-3 text-light h1">Reportages</h1>
 		<div class="portfolio-warp">
 			<!-- single item -->
 			<div class="single-portfolio set-bg" data-setbg="https://i.vimeocdn.com/video/851166824_780x439.jpg">
@@ -306,7 +308,7 @@
 		</div>
 		<div class="clearfix"></div>
 		<div class="sp-pad next-portfolio-link">
-			<a href="#" class="arrow-btn text-light" style="font-size: 40px">
+			<a href="portfolio.html" class="arrow-btn text-light" style="font-size: 40px">
 				<i class="fa fa-angle-right"></i>
 				<i class="fa fa-angle-right"></i>
 				<i class="fa fa-angle-right"></i>
@@ -368,13 +370,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="service-more-link">
-			<a href="#" class="arrow-btn text-light" style="font-size: 40px">
-				<i class="fa fa-angle-right"></i>
-				<i class="fa fa-angle-right"></i>
-				<i class="fa fa-angle-right"></i>
-			</a>
 		</div>
 	</section>
 	<!-- Services section start end -->
@@ -537,7 +532,8 @@
 			reload_js('js/curtains.js');
 		});
 
-		$('.carousel-control-prev').click(function () {
+
+		$('.previous').click(function () {
 			if (carousel_index != 0) {
 				carousel_index -= 1;
 			}
