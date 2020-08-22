@@ -227,7 +227,12 @@ class Slider {
         let end =  Date.now() - this.time
 
         if (end <= 200) {
+            let modalBackdrop = document.querySelector('.modal-backdrop');
             let selectedVideo = this.target.getAttribute('data-selected');
+            // modalBackdrop.classList.remove('modal-backdrop');
+            $('#btn-modal').click();
+            
+            $('.video-player').attr('src', selectedVideo)
             console.log(selectedVideo);
             console.log('play')
         }

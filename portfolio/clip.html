@@ -1,84 +1,152 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>JF. ALONSO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Arvo:400,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css?family=Arvo:400,700&display=swap" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
 
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<!-- div that will hold our WebGL canvas -->
-<div id="canvas"></div>
-
-<div id="content">
-
-  <h1 id="title" class="title">Clip musicaux</h1>
-
-  <!-- drag slider -->
-  <div id="planes">
-
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Lacrim Philippins </span>
-      <div data-selected="hello" class="plane">
-        <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/clip/lacrim-philippins.png" alt="Photo by Gregory Culmer on Unsplash" data-sampler="planeTexture" crossorigin />
+  <!-- Modal -->
+  <div class="modal fade border-0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog m-0 border-0"
+      style="margin-left: 5vw!important; margin-top: 10vh!important; width: 80vw;!important" role="document">
+      <div class="modal-content m-0"
+        style="margin-left: 5vw!important; margin-top: 10vh!important; width: 80vw;!important">
+        <iframe src="https://player.vimeo.com/video/386548039" class="border-0 video-player" style="position:absolute;" height="800"
+          width="100%" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
     </div>
+  </div>
 
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Philippines</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/SDaJRmZYMDA/1280x720" alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+  <button type="button" class="btn d-none btn-primary" id="btn-modal" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+  <!-- partial:index.partial.html -->
+  <!-- div that will hold our WebGL canvas -->
+  <div id="canvas"></div>
+
+  <div id="content">
+
+
+    <h1 id="title" class="title">Clip musicaux</h1>
+
+    <!-- drag slider -->
+    <div id="planes">
+
+      <div data-selected="https://www.youtube.com/embeded/eH1GClvoHq8" class="plane-wrapper">
+        <!-- <span data-selected="hello" class="plane-title">Lacrim Philippins </span> -->
+        <div data-selected="https://www.youtube.com/embeded/eH1GClvoHq8" class="plane">
+          <img
+            src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/clip/lacrim-philippins.png"
+            alt="Photo by Gregory Culmer on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
       </div>
+
+      <div data-selected="https://www.youtube.com/embeded/CRPNcrBAiOc" class="plane-wrapper">
+        <!-- <span data-selected="hello" class="plane-title">Philippines</span> -->
+        <div data-selected="https://www.youtube.com/embeded/CRPNcrBAiOc" class="plane">
+          <img
+            src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/clip/adios-algerino-soolking.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+
+      <div data-selected="hello" class="plane-wrapper">
+        <span data-selected="hello" class="plane-title">Germaine Kobo et Bella Lawson <br> "Bella Makossa"</span>
+        <div data-selected="hello" class="plane">
+          <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/clip/bella-makossa.png"
+            data-sampler="planeTexture" alt="Photo by Samule Sun on Unsplash" crossorigin />
+        </div>
+      </div>
+
+
+      <div data-selected="hello" class="plane-wrapper">
+        <span data-selected="hello" class="plane-title">Bob Lunet <br> "Aznavour du pauvre"</span>
+        <div data-selected="hello" class="plane">
+          <img
+            src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/clip/aznavour-du-pauvre.png"
+            alt="Photo by Jailam Rashad on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+
+      <div data-selected="hello" class="plane-wrapper">
+        <span data-selected="hello" class="plane-title">Bob Lunet <br> "Poignée de punchline"</span>
+        <div data-selected="hello" class="plane">
+          <img
+            src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/clip/poigne-de-punchline.png"
+            data-sampler="planeTexture" alt="Photo by Chris Karidis on Unsplash" crossorigin />
+        </div>
+      </div>
+
+      <div data-selected="hello" class="plane-wrapper">
+        <span data-selected="hello" class="plane-title">Bob Lunet <br> "Bonjour pour souffrir"</span>
+        <div data-selected="hello" class="plane">
+          <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/clip/chaques-fois.png"
+            data-sampler="planeTexture" alt="Photo by Chris Karidis on Unsplash" crossorigin />
+        </div>
+      </div>
+
+      <div data-selected="hello" class="plane-wrapper">
+        <span data-selected="hello" class="plane-title">Bob Lunet <br> "chaque fois"</span>
+        <div data-selected="hello" class="plane">
+          <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/clip/chaque-fois.png"
+            data-sampler="planeTexture" alt="Photo by Samule Sun on Unsplash" crossorigin />
+        </div>
+      </div>
+
+      <div data-selected="hello" class="plane-wrapper">
+        <span data-selected="hello" class="plane-title">Salrim feat Bighazi<br> "Propre et carré" </span>
+        <div data-selected="hello" class="plane">
+          <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/clip/salrim-bighazi.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+
+      <div data-selected="hello" class="plane-wrapper">
+        <span data-selected="hello" class="plane-title">100-16 L’équipe feat L’Afro<br> "Laisse les ramper" </span>
+        <div data-selected="hello" class="plane">
+          <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/clip/100-16.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+
+      <div data-selected="hello" class="plane-wrapper">
+        <span data-selected="hello" class="plane-title">Nathalie Donice <br> "Le Silence Fait Mal" </span>
+        <div data-selected="hello" class="plane">
+          <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/clip/nathalie-donice.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+
     </div>
 
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Indonesia</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/DxmBSgUYKis/1600x900" alt="Photo by sutirta budiman on Unsplash" data-sampler="planeTexture" crossorigin />
-      </div>
+    <div id="drag-tip" class="title">
+      Fais tourner pour en voir plus !
     </div>
 
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Maldives</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/lT9rqfG7lcQ/1280x720" alt="Photo by Jailam Rashad on Unsplash" data-sampler="planeTexture" crossorigin />
-      </div>
-    </div>
-
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Greece</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/QXW1YEMhq_4/1280x720" data-sampler="planeTexture" alt="Photo by Chris Karidis on Unsplash" crossorigin />
-      </div>
-    </div>
-
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Fiji</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/3jtm7BMsaPA/1280x720" alt="Photo by Lili Ortiz on Unsplash" data-sampler="planeTexture" crossorigin />
-      </div>
-    </div>
-
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Thailand</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/Mwg_MdX-Jx4/1280x720" data-sampler="planeTexture" alt="Photo by Samule Sun on Unsplash" crossorigin />
-      </div>
-    </div>
 
   </div>
 
-  <div id="drag-tip" class="title">
-    Fais tourner pour en voir plus !
-  </div>
 
-
-</div>
-
-
-<script id="slider-planes-vs" type="x-shader/x-vertex">
+  <script id="slider-planes-vs" type="x-shader/x-vertex">
   #ifdef GL_ES
   precision mediump float;
   #endif
@@ -108,7 +176,7 @@
     vTextureCoord = (planeTextureMatrix * vec4(aTextureCoord, 0.0, 1.0)).xy;
   }
 </script>
-<script id="slider-planes-fs" type="x-shader/x-fragment">
+  <script id="slider-planes-fs" type="x-shader/x-fragment">
   #ifdef GL_ES
   precision mediump float;
   #endif
@@ -140,7 +208,7 @@
 </script>
 
 
-<script id="distortion-vs" type="x-shader/x-vertex">
+  <script id="distortion-vs" type="x-shader/x-vertex">
   #ifdef GL_ES
   precision mediump float;
   #endif
@@ -180,7 +248,7 @@
     vMouseTexCoords = mix(mouseHorizontalTexCoords, mouseVerticalTexCoords, uDirection);
   }
 </script>
-<script id="distortion-fs" type="x-shader/x-fragment">
+  <script id="distortion-fs" type="x-shader/x-fragment">
   #ifdef GL_ES
   precision mediump float;
   #endif
@@ -255,9 +323,11 @@
   gl_FragColor = finalColor;
   }
 </script>
-<!-- partial -->
+  <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js'></script>
-<script src='https://www.curtainsjs.com/build/curtains.min.js'></script><script  src="./script.js"></script>
+  <script src='https://www.curtainsjs.com/build/curtains.min.js'></script>
+  <script src="./script.js"></script>
 
 </body>
+
 </html>

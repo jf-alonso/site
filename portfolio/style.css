@@ -208,3 +208,8 @@
 .title {
     color: white !important;
 }
+
+.modal-backdrop {
+    z-index: 0;
+    opacity: 0!important;
+}
