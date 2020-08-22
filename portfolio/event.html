@@ -1,84 +1,160 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - WebGL enhanced javascript drag slider</title>
+  <title>JF. ALONSO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Arvo:400,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css?family=Arvo:400,700&display=swap" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
 
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<!-- div that will hold our WebGL canvas -->
-<div id="canvas"></div>
-
-<div id="content">
-
-  <h1 id="title" class="title">Evenements</h1>
-
-  <!-- drag slider -->
-  <div id="planes">
-
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Bahamas</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/2fFd7SIVpz8/1280x720" alt="Photo by Gregory Culmer on Unsplash" data-sampler="planeTexture" crossorigin />
+  <!-- Modal -->
+  <div class="modal fade border-0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog m-0 border-0"
+      style="margin-left: 5vw!important; margin-top: 10vh!important; width: 80vw;!important" role="document">
+      <div class="modal-content m-0"
+        style="margin-left: 5vw!important; margin-top: 10vh!important; width: 80vw;!important">
+        <iframe src="https://player.vimeo.com/video/386548039" class="border-0 video-player" style="position:absolute;"
+          height="800" width="100%" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
     </div>
+  </div>
 
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Philippines</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/SDaJRmZYMDA/1280x720" alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+  <button type="button" class="btn d-none btn-primary" id="btn-modal" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+  <!-- partial:index.partial.html -->
+  <!-- div that will hold our WebGL canvas -->
+  <div id="canvas"></div>
+
+  <div id="content">
+
+
+    <h1 id="title" class="title">Event</h1>
+
+    <!-- drag slider -->
+    <div id="planes">
+
+      <div data-selected="https://player.vimeo.com/video/352510603" class="plane-wrapper">
+        <div data-selected="https://player.vimeo.com/video/352510603" class="plane">
+          <span data-selected="https://player.vimeo.com/video/352510603" class="plane-title">3eoeil summer
+            festival</span>
+          <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/event/3oeil.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
       </div>
+      <div data-selected="https://player.vimeo.com/video/386548039" class="plane-wrapper">
+        <div data-selected="https://player.vimeo.com/video/386548039" class="plane">
+          <span data-selected="https://player.vimeo.com/video/386548039" class="plane-title">Festival Meltin Art
+          </span>
+          <img
+            src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/event/meltinart-resume.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+
+      <div data-selected="https://player.vimeo.com/video/319493236" class="plane-wrapper">
+        <div data-selected="https://player.vimeo.com/video/319493236" class="plane">
+          <span data-selected="https://player.vimeo.com/video/319493236" class="plane-title">After movie de Guizmo et
+            Makiavel au Moulin </span>
+          <img
+            src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/event/after-movie-guizmo.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+
+      <div data-selected="https://player.vimeo.com/video/332690072" class="plane-wrapper">
+        <div data-selected="https://player.vimeo.com/video/332690072" class="plane">
+          <span data-selected="https://player.vimeo.com/video/332690072" class="plane-title">After movie de Koba la D
+            et 100blaze au Moulin</span>
+          <img
+            src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/event/after-movie-kobald.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+
+      <div data-selected="https://player.vimeo.com/video/389295794" class="plane-wrapper">
+        <div data-selected="https://player.vimeo.com/video/389295794" class="plane">
+          <span data-selected="https://player.vimeo.com/video/389295794" class="plane-title">La maroquinerie Anna
+            Farow</span>
+          <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/event/anna-farow.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+      <div data-selected="https://player.vimeo.com/video/352344787" class="plane-wrapper">
+        <div data-selected="https://player.vimeo.com/video/352344787" class="plane">
+          <span data-selected="https://player.vimeo.com/video/352344787" class="plane-title">Martigue summer
+            festival</span>
+          <img
+            src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/event/martigues-summer-festival.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+
+      <div data-selected="https://player.vimeo.com/video/341078790" class="plane-wrapper">
+        <div data-selected="https://player.vimeo.com/video/341078790" class="plane">
+          <span data-selected="https://player.vimeo.com/video/341078790" class="plane-title">Cumbia chichara live
+            caravanserail</span>
+          <img
+            src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/event/festival-caravanserail.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+
+      <div data-selected="https://player.vimeo.com/video/303305364" class="plane-wrapper">
+        <div data-selected="https://player.vimeo.com/video/303305364" class="plane">
+          <span data-selected="https://player.vimeo.com/video/303305364" class="plane-title">Full Hip Hop #1 Rémy,
+            Bob Lunet, Labo [Teaser]</span>
+          <img
+            src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/event/remy-villeurbane.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+
+      <div data-selected="https://player.vimeo.com/video/265400312" class="plane-wrapper">
+        <div data-selected="https://player.vimeo.com/video/265400312" class="plane">
+          <span data-selected="https://player.vimeo.com/video/265400312" class="plane-title">Avignon Vélo
+            Passion</span>
+          <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/event/velo-passion.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+      <div data-selected="https://player.vimeo.com/video/358847328" class="plane-wrapper">
+        <div data-selected="https://player.vimeo.com/video/358847328" class="plane">
+          <span data-selected="https://player.vimeo.com/video/358847328" class="plane-title">Holi Party 2019</span>
+          <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/event/holy-party.png"
+            alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+        </div>
+      </div>
+
+
     </div>
 
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Indonesia</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/DxmBSgUYKis/1600x900" alt="Photo by sutirta budiman on Unsplash" data-sampler="planeTexture" crossorigin />
-      </div>
+    <div id="drag-tip" class="title">
+      Fais tourner pour en voir plus !
     </div>
 
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Maldives</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/lT9rqfG7lcQ/1280x720" alt="Photo by Jailam Rashad on Unsplash" data-sampler="planeTexture" crossorigin />
-      </div>
-    </div>
-
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Greece</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/QXW1YEMhq_4/1280x720" data-sampler="planeTexture" alt="Photo by Chris Karidis on Unsplash" crossorigin />
-      </div>
-    </div>
-
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Fiji</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/3jtm7BMsaPA/1280x720" alt="Photo by Lili Ortiz on Unsplash" data-sampler="planeTexture" crossorigin />
-      </div>
-    </div>
-
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Thailand</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/Mwg_MdX-Jx4/1280x720" data-sampler="planeTexture" alt="Photo by Samule Sun on Unsplash" crossorigin />
-      </div>
-    </div>
 
   </div>
 
-  <div id="drag-tip" class="title">
-    Fais tourner pour envoir plus !
-  </div>
 
-
-</div>
-
-
-<script id="slider-planes-vs" type="x-shader/x-vertex">
+  <script id="slider-planes-vs" type="x-shader/x-vertex">
   #ifdef GL_ES
   precision mediump float;
   #endif
@@ -108,7 +184,7 @@
     vTextureCoord = (planeTextureMatrix * vec4(aTextureCoord, 0.0, 1.0)).xy;
   }
 </script>
-<script id="slider-planes-fs" type="x-shader/x-fragment">
+  <script id="slider-planes-fs" type="x-shader/x-fragment">
   #ifdef GL_ES
   precision mediump float;
   #endif
@@ -140,7 +216,7 @@
 </script>
 
 
-<script id="distortion-vs" type="x-shader/x-vertex">
+  <script id="distortion-vs" type="x-shader/x-vertex">
   #ifdef GL_ES
   precision mediump float;
   #endif
@@ -180,7 +256,7 @@
     vMouseTexCoords = mix(mouseHorizontalTexCoords, mouseVerticalTexCoords, uDirection);
   }
 </script>
-<script id="distortion-fs" type="x-shader/x-fragment">
+  <script id="distortion-fs" type="x-shader/x-fragment">
   #ifdef GL_ES
   precision mediump float;
   #endif
@@ -255,9 +331,11 @@
   gl_FragColor = finalColor;
   }
 </script>
-<!-- partial -->
+  <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js'></script>
-<script src='https://www.curtainsjs.com/build/curtains.min.js'></script><script  src="./script.js"></script>
+  <script src='https://www.curtainsjs.com/build/curtains.min.js'></script>
+  <script src="./script.js"></script>
 
 </body>
+
 </html>

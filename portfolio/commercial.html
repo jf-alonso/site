@@ -4,7 +4,18 @@
   <meta charset="UTF-8">
   <title>CodePen - WebGL enhanced javascript drag slider</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Arvo:400,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css?family=Arvo:400,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
@@ -14,57 +25,61 @@
 
 <div id="content">
 
-  <h1 id="title" class="title">Evenements</h1>
+  <h1 id="title" class="title">Publicitées</h1>
+
+    <!-- Modal -->
+    <div class="modal fade border-0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog m-0 border-0"
+      style="margin-left: 5vw!important; margin-top: 10vh!important; width: 80vw;!important" role="document">
+      <div class="modal-content m-0"
+        style="margin-left: 5vw!important; margin-top: 10vh!important; width: 80vw;!important">
+        <iframe src="https://player.vimeo.com/video/386548039" class="border-0 video-player" style="position:absolute;" height="800"
+          width="100%" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="btn d-none btn-primary" id="btn-modal" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
 
   <!-- drag slider -->
   <div id="planes">
+    
 
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Bahamas</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/2fFd7SIVpz8/1280x720" alt="Photo by Gregory Culmer on Unsplash" data-sampler="planeTexture" crossorigin />
+    <div data-selected="https://player.vimeo.com/video/380304836" class="plane-wrapper">
+      <span data-selected="https://player.vimeo.com/video/380304836" class="plane-title">Cité de la musique de Marseille - Formation professionnelle</span>
+      <div data-selected="https://player.vimeo.com/video/380304836" class="plane">
+        <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/commercial/cite-de-musique-formation-marseille.png" alt="Photo by Gregory Culmer on Unsplash" data-sampler="planeTexture" crossorigin />
       </div>
     </div>
 
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Philippines</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/SDaJRmZYMDA/1280x720" alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
+    <div data-selected="https://player.vimeo.com/video/361083375" class="plane-wrapper">
+      <span data-selected="https://player.vimeo.com/video/361083375" class="plane-title">G immobilier de prestige</span>
+      <div data-selected="https://player.vimeo.com/video/361083375" class="plane">
+        <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/commercial/g-immobilier.png" alt="Photo by James Connolly on Unsplash" data-sampler="planeTexture" crossorigin />
       </div>
     </div>
 
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Indonesia</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/DxmBSgUYKis/1600x900" alt="Photo by sutirta budiman on Unsplash" data-sampler="planeTexture" crossorigin />
+    <div data-selected="https://player.vimeo.com/video/338064042" class="plane-wrapper">
+      <span data-selected="https://player.vimeo.com/video/338064042" class="plane-title">Usap 84 Film Promotionne</span>
+      <div data-selected="https://player.vimeo.com/video/338064042" class="plane">
+        <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/commercial/usap84.png" alt="Photo by sutirta budiman on Unsplash" data-sampler="planeTexture" crossorigin />
       </div>
     </div>
 
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Maldives</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/lT9rqfG7lcQ/1280x720" alt="Photo by Jailam Rashad on Unsplash" data-sampler="planeTexture" crossorigin />
+    <div data-selected="https://player.vimeo.com/video/435865812" class="plane-wrapper">
+      <span data-selected="https://player.vimeo.com/video/435865812" class="plane-title">Les fruits des poètes</span>
+      <div data-selected="https://player.vimeo.com/video/435865812" class="plane">
+        <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/commercial/fruits-des-poetes.png" alt="Photo by Jailam Rashad on Unsplash" data-sampler="planeTexture" crossorigin />
       </div>
     </div>
 
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Greece</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/QXW1YEMhq_4/1280x720" data-sampler="planeTexture" alt="Photo by Chris Karidis on Unsplash" crossorigin />
-      </div>
-    </div>
-
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Fiji</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/3jtm7BMsaPA/1280x720" alt="Photo by Lili Ortiz on Unsplash" data-sampler="planeTexture" crossorigin />
-      </div>
-    </div>
-
-    <div data-selected="hello" class="plane-wrapper">
-      <span data-selected="hello" class="plane-title">Thailand</span>
-      <div data-selected="hello" class="plane">
-        <img src="https://source.unsplash.com/Mwg_MdX-Jx4/1280x720" data-sampler="planeTexture" alt="Photo by Samule Sun on Unsplash" crossorigin />
+    <div data-selected="https://player.vimeo.com/video/365324446" class="plane-wrapper">
+      <span data-selected="https://player.vimeo.com/video/365324446" class="plane-title">Les maraîchers de la vallée des baux de provence </span>
+      <div data-selected="https://player.vimeo.com/video/365324446" class="plane">
+        <img src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/commercial/maraichers-de-la-valée.png" data-sampler="planeTexture" alt="Photo by Chris Karidis on Unsplash" crossorigin />
       </div>
     </div>
 
