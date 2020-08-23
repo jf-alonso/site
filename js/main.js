@@ -153,6 +153,17 @@ $(window).on('load', function() {
 	});
 
 
+	$('.archive-item').click((e) => {
+		let selectedVideo = e.target.getAttribute('data-selected');
+		
+		$('.video-player').attr('src', selectedVideo)
+		$('#btn-modal').click();
+	});
+
+
 
 })(jQuery);
+
+window.removeEventListener("onScroll", self._resizeHandler, false);
+
 

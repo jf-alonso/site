@@ -52,3 +52,7 @@
 		background-position: 50% 20em;	
 	}
 }
+
+.cursor-pointer {
+	cursor: pointer !important;
+}

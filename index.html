@@ -13,6 +13,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
 
 	<!-- Stylesheets -->
+	<link rel="stylesheet" href="ajax-navigation-with-plane-removal/style.css" type="text/css">
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/font-awesome.min.css" />
 	<link rel="stylesheet" href="css/flaticon.css" />
@@ -26,36 +27,17 @@
 	<link rel="stylesheet" href="css/style.css" />
 
 	<!-- Facebook OG -->
-	<script src="https://cdn.jsdelivr.net/npm/curtainsjs@5.3.1/libs/curtains.min.js"></script>
+	<meta property="og:title" content="curtains.js | Basic plane example">
+	<meta property="og:type" content="website">
+	<meta property="og:description" content="A basic WebGL plane bound to a HTML DOM element with curtains.js">
+	<meta property="og:image" content="https://www.curtainsjs.com/images/curtains-js-logo.jpg">
 	<!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
+
 </head>
-<style>
-	#canvas {
-		/* make the canvas wrapper fits the document */
-		position: absolute;
-		top: 10vh;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		height: 2000px !important;
-	}
-
-	.plane {
-		/* define the size of your plane */
-		width: 80vw;
-		height: 60vh;
-		margin: auto;
-	}
-
-	.plane img {
-		/* hide the img element */
-		display: none;
-	}
-</style>
 
 <body>
 	<!-- Page Preloder -->
@@ -67,10 +49,10 @@
 	<div class="modal fade border-0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog m-0 border-0"
-			style="margin-left: 5vw!important; margin-top: 20vh!important; width: 80vw;!important" role="document">
+			style="margin-left: 5vw!important; margin-top: 5vh!important; width: 80vw;!important" role="document">
 			<div class="modal-content m-0"
-				style="margin-left: 5vw!important; margin-top: 20vh!important; width: 80vw;!important">
-				<iframe src="https://player.vimeo.com/video/386548039" class="border-0" style="position:absolute;"
+				style="margin-left: 5vw!important; margin-top: 5vh!important; width: 80vw;!important">
+				<iframe src="https://player.vimeo.com/video/386548039" class="border-0 video-player" style="position:absolute;"
 					height="800" width="100%" allow="autoplay; fullscreen" allowfullscreen></iframe>
 			</div>
 		</div>
@@ -79,25 +61,34 @@
 	<!-- Header section start -->
 	<header class="header-section sp-pad">
 		<h3 class="site-logo">JF. ALONSO</h3>
-		<form class="search-top">
-			<button class="se-btn"><i class="fa fa-search"></i></button>
-			<input type="text" placeholder="Search.....">
-		</form>
-		<div class="nav-switch">
-			<i class="fa fa-bars"></i>
-		</div>
 		<nav class="main-menu">
 			<ul>
 				<li><a href="index.html">Home</a></li>
-				<li><a href="index.html#carouselExampleControls">À la une</a></li>
 				<li><a href="index.html#portfolio">Portfolio</a></li>
-				<li><a href="index.html#services">Services</a></li>
+				<li><a href="index.html#services">à propos</a></li>
 				<li><a href="index.html#contact">Contactez moi !</a></li>
 			</ul>
 		</nav>
 	</header>
 	<!-- Header section end -->
 
+
+	  <!-- Modal -->
+	  <div class="modal fade border-0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+	  aria-hidden="true">
+	  <div class="modal-dialog m-0 border-0"
+		style="margin-left: 5vw!important; margin-top: 10vh!important; width: 80vw;!important" role="document">
+		<div class="modal-content m-0"
+		  style="margin-left: 5vw!important; margin-top: 10vh!important; width: 80vw;!important">
+		  <iframe src="https://www.youtube.com/embed/eH1GClvoHq8" class="border-0 video-player" style="position:absolute;" height="800"
+			width="100%" allow="autoplay; fullscreen" allowfullscreen></iframe>
+		</div>
+	  </div>
+	</div>
+  
+	<button type="button" class="btn d-none btn-primary" id="btn-modal" data-toggle="modal" data-target="#exampleModal">
+	  Launch demo modal
+	</button>
 
 	<!-- Hero section start -->
 	<main class="demo-4">
@@ -112,258 +103,179 @@
 	<!-- Hero section end -->
 
 
-	<!-- Intro section start -->
-	<section class="intro-section sp-pad spad carousel slide" id="carouselExampleControls" data-ride="carousel">
-		<div class="container-fluid carousel-inner row">
-			<div class="row h-50 carousel-item active">
-				<h1 class="text-center text-light carousel_title text-uppercase"
-					style="color: rgba(255,255,255, 0.4)!important">FESTIVALE MELTIN'ART 2019</h1>
-				<div class="col-xl-10 offset-xl-1 ripple-container">
-					<div id="canvas"></div>
-					<div class="plane">
-						<img class="project-preview carousel_image"
-							src="https://i.vimeocdn.com/video/851166824_780x439.jpg" alt="">
+
+	<div id="page-wrap">
+
+		<div id="canvas"></div>
+
+		<div id="content">
+
+			<div class=" p-2 mt-5" id="portfolio">
+
+				<span class="sp-sub-title pl-3">Categorie</span>
+				<h1 class="text-light">Evenements</h1>
+
+				<div class="archive mt-5">
+
+					<div data-selected="https://player.vimeo.com/video/386548039" class="archive-item cursor-pointer">
+						<div data-selected="https://player.vimeo.com/video/386548039" class="plane-wrapper cursor-pointer">
+							<div  data-selected="https://player.vimeo.com/video/386548039" class="plane cursor-pointer">
+								<img
+								data-selected="https://player.vimeo.com/video/386548039" src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/event/meltinart-resume.png" />
+							</div>
+						</div>
+					</div>
+
+					<div data-selected="https://player.vimeo.com/video/352344787"  class="archive-item cursor-pointer">
+						<div data-selected="https://player.vimeo.com/video/352344787" class="plane-wrapper cursor-pointer">
+							<div data-selected="https://player.vimeo.com/video/352344787" class="plane cursor-pointer">
+								<img
+								data-selected="https://player.vimeo.com/video/352344787" src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/event/martigues-summer-festival.png" />
+							</div>
+						</div>
+					</div>
+					<div class="sp-pad next-portfolio-link w-100" style="z-index: 1000">
+						<a href="portfolio/event.html" class="arrow-btn text-light" style="font-size: 30px">
+							<i class="fa fa-angle-right"></i>
+							<i class="fa fa-angle-right"></i>
+							<i class="fa fa-angle-right"></i>
+						</a>
 					</div>
 				</div>
+
 			</div>
-			<a class="carousel-control-next  play h1 text-light h1" type="button" data-toggle="modal"
-				data-target="#exampleModal" style="top: 50%;left: 50%;transform: translate(-50%, -50%);">
-				<i class="fa fa-play"></i>
-			</a>
-			<a class="carousel-control-next previous ml-5 position-absolute" style="left:0"
-				href="#carouselExampleControls" role="button" data-slide="next">
-				<h1 class="text-light">PREVIOUS</h1>
-			</a>
-			<a class="carousel-control-next next ml-5" href="#carouselExampleControls" role="button" data-slide="next">
-				<h1 class="text-light">NEXT</h1>
-			</a>
+
+
 		</div>
-		</div>
-	</section>
-	<!-- Intro section end -->
 
+		<div class=" p-2">
 
-	<!-- Portfolio section start -->
-	<section class="portfolio-section pb-0 mb-0" id="portfolio">
-		<span class="sp-sub-title pl-3">Categorie</span>
-		<h1 class="sp-title pl-3 text-light h1">Clip musicaux</h1>
-		<div class="portfolio-warp">
-			<!-- single item -->
-			<div class="single-portfolio set-bg">
-				<a>
-				<iframe height="100%" width="100%" src="https://www.youtube.com/embed/eH1GClvoHq8" height="100%"
-					width="100%" frameborder="0" allowfullscreen></iframe>
-				<!-- <a href="single-work.html" class="portfolio-info"> -->
-				<!-- <div class="pfbg set-bg" data-setbg="https://youtube.com/embed/ovz3ZnfySaI?autoplay=0&controls=1&showinfo=0&autohide=1"></div> -->
-				<!-- <h5 class="text-uppercase">FESTIVALE MELTIN'ART 2019</h5> -->
-				<!-- </a> -->
-			</div>
+			<span class="sp-sub-title pl-3">Categorie</span>
+			<h1 class="text-light">Clip musicaux</h1>
 
-			<!-- single item -->
-			<div class="single-portfolio set-bg">
-				<a>
-				<iframe height="100%" width="100%"
-					src="https://youtube.com/embed/CRPNcrBAiOc?autoplay=0&controls=1&showinfo=0&autohide=1"
-					frameborder="0" allowfullscreen></iframe>
-				<!-- <iframe class="set-bg" src="https://www.youtube.com/embed/eH1GClvoHq8" width="600" height="360" frameborder="0"  allowfullscreen></iframe> -->
-			</div>
-			<!-- single item -->
-			<div class="single-portfolio set-bg">
-				<a>
-				<iframe height="100%" width="100%" src="https://www.youtube.com/embed/GkIAcYnmph4" frameborder="0"
-					allowfullscreen></iframe>
-				<!-- <iframe class="set-bg" src="https://www.youtube.com/embed/eH1GClvoHq8" width="600" height="360" frameborder="0"  allowfullscreen></iframe> -->
+			<div class="archive mt-5">
+
+				<div data-selected="https://www.youtube.com/embed/eH1GClvoHq8" class="archive-item cursor-pointer">
+					<div data-selected="https://www.youtube.com/embed/eH1GClvoHq8" class="plane-wrapper cursor-pointer">
+						<div data-selected="https://www.youtube.com/embed/eH1GClvoHq8" class="plane cursor-pointer">
+							<img
+							data-selected="https://www.youtube.com/embed/eH1GClvoHq8" src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/clip/lacrim-philippins.png" />
+						</div>
+					</div>
+				</div>
+
+				<div data-selected="https://www.youtube.com/embed/CRPNcrBAiOc" class="archive-item cursor-pointer">
+					<div data-selected="https://www.youtube.com/embed/CRPNcrBAiOc" class="plane-wrapper cursor-pointer">
+						<div data-selected="https://www.youtube.com/embed/CRPNcrBAiOc" class="plane cursor-pointer">
+							<img data-selected="https://www.youtube.com/embed/CRPNcrBAiOc" src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/clip/adios-algerino-soolking.png" />
+						</div>
+					</div>
+				</div>
+				<div class="sp-pad next-portfolio-link w-100" style="z-index: 1000">
+					<a href="portfolio/clip.html" class="arrow-btn text-light" style="font-size: 30px">
+						<i class="fa fa-angle-right"></i>
+						<i class="fa fa-angle-right"></i>
+						<i class="fa fa-angle-right"></i>
+					</a>
+				</div>
+
 			</div>
 		</div>
-		<div class="clearfix"></div>
-		<div class="sp-pad next-portfolio-link">
-			<a href="portfolio/clip.html" class="arrow-btn text-light" style="font-size: 40px">
-				<i class="fa fa-angle-right"></i>
-				<i class="fa fa-angle-right"></i>
-				<i class="fa fa-angle-right"></i>
-			</a>
-		</div>
-	</section>
-	<!-- Portfolio section end -->
 
 
-	<!-- Portfolio section start -->
-	<section class="portfolio-section pb-0 mb-0" id="portfolio">
-		<span class="sp-sub-title pl-3">Categorie</span>
-		<h1 class="sp-title pl-3 text-light h1">Evenements</h1>
-		<div class="portfolio-warp">
+		<div class=" p-2">
 
-			<!-- single item -->
-			<div class="single-portfolio set-bg">
-				<a>
-				<iframe height="100%" width="100%" src="https://player.vimeo.com/video/352344787" frameborder="0"
-					allowfullscreen></iframe>
-				<!-- <iframe class="set-bg" src="https://www.youtube.com/embed/eH1GClvoHq8" width="600" height="360" frameborder="0"  allowfullscreen></iframe> -->
-			</div>
+			<span class="sp-sub-title pl-3">Categorie</span>
+			<h1 class="text-light">Publicitées</h1>
 
-			<div class="single-portfolio set-bg">
-				<a>
-				<iframe height="100%" width="100%" src="https://player.vimeo.com/video/374137608" frameborder="0"
-					allowfullscreen></iframe>
-				<!-- <iframe class="set-bg" src="https://www.youtube.com/embed/eH1GClvoHq8" width="600" height="360" frameborder="0"  allowfullscreen></iframe> -->
-			</div>
+			<div class="archive mt-5">
 
-			<!-- single item -->
-			<div class="single-portfolio set-bg">
-				<a>
-				<iframe height="100%" width="100%" src="https://player.vimeo.com/video/352510603" frameborder="0"
-					allowfullscreen></iframe>
-				<!-- <iframe class="set-bg" src="https://www.youtube.com/embed/eH1GClvoHq8" width="600" height="360" frameborder="0"  allowfullscreen></iframe> -->
-			</div>
-		</div>
-		<div class="clearfix"></div>
-		<div class="sp-pad next-portfolio-link">
-			<a href="portfolio/event.html" class="arrow-btn text-light" style="font-size: 40px">
-				<i class="fa fa-angle-right"></i>
-				<i class="fa fa-angle-right"></i>
-				<i class="fa fa-angle-right"></i>
-			</a>
-		</div>
-	</section>
-	<!-- Portfolio section end -->
+				<div data-selected="https://player.vimeo.com/video/338064042" class="archive-item cursor-pointer">
+					<div data-selected="https://player.vimeo.com/video/338064042" class="plane-wrapper cursor-pointer">
+						<div  data-selected="https://player.vimeo.com/video/338064042"class="plane cursor-pointer">
+							<img
+								src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/commercial/usap84.png" />
+						</div>
+					</div>
+				</div>
 
+				<div data-selected="https://player.vimeo.com/video/365324446" class="archive-item cursor-pointer">
+					<div data-selected="https://player.vimeo.com/video/365324446" class="plane-wrapper cursor-pointer">
+						<div data-selected="https://player.vimeo.com/video/365324446" class="plane cursor-pointer">
+							<img
+								src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/commercial/maraichers-de-la-valée.png" />
+						</div>
+					</div>
+				</div>
 
+				<div class="sp-pad next-portfolio-link w-100" style="z-index: 1000">
+					<a href="portfolio/commercial.html" class="arrow-btn text-light" style="font-size: 30px">
+						<i class="fa fa-angle-right"></i>
+						<i class="fa fa-angle-right"></i>
+						<i class="fa fa-angle-right"></i>
+					</a>
+				</div>
 
-	<!-- Portfolio section start -->
-	<section class="portfolio-section pb-0 mb-0" id="portfolio">
-		<span class="sp-sub-title pl-3">Categorie</span>
-		<h1 class="sp-title pl-3 text-light h1">Publicitées</h1>
-		<div class="portfolio-warp">
-
-			<!-- single item -->
-			<div class="single-portfolio set-bg">
-				<a>
-				<iframe height="100%" width="100%" src="https://player.vimeo.com/video/365324446" frameborder="0"
-					allowfullscreen></iframe>
-				<!-- <iframe class="set-bg" src="https://www.youtube.com/embed/eH1GClvoHq8" width="600" height="360" frameborder="0"  allowfullscreen></iframe> -->
-			</div>
-
-			<div class="single-portfolio set-bg">
-				<a>
-				<iframe height="100%" width="100%" src="https://player.vimeo.com/video/338064042" frameborder="0"
-					allowfullscreen></iframe>
-				<!-- <iframe class="set-bg" src="https://www.youtube.com/embed/eH1GClvoHq8" width="600" height="360" frameborder="0"  allowfullscreen></iframe> -->
-			</div>
-
-			<!-- single item -->
-			<div class="single-portfolio set-bg">
-				<a>
-				<iframe height="100%" width="100%" src="https://player.vimeo.com/video/380304836" frameborder="0"
-					allowfullscreen></iframe>
-				<!-- <iframe class="set-bg" src="https://www.youtube.com/embed/eH1GClvoHq8" width="600" height="360" frameborder="0"  allowfullscreen></iframe> -->
 			</div>
 
 		</div>
-		<div class="clearfix"></div>
-		<div class="sp-pad next-portfolio-link">
-			<a href="portfolio/commercial.html" class="arrow-btn text-light" style="font-size: 40px">
-				<i class="fa fa-angle-right"></i>
-				<i class="fa fa-angle-right"></i>
-				<i class="fa fa-angle-right"></i>
-			</a>
+
+
+		<div class=" p-2">
+
+			<span class="sp-sub-title pl-3">Categorie</span>
+			<h1 class="text-light">Reportages</h1>
+
+			<div class="archive mt-5">
+
+				<div data-selected="https://player.vimeo.com/video/309500801" class="archive-item cursor-pointer">
+					<div data-selected="https://player.vimeo.com/video/309500801" class="plane-wrapper cursor-pointer">
+						<div  data-selected="https://player.vimeo.com/video/309500801" class="plane cursor-pointer">
+							<img
+								src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/report/gospal-homage.png" />
+						</div>
+					</div>
+				</div>
+
+				<div data-selected="https://player.vimeo.com/video/386597963" class="archive-item cursor-pointer">
+					<div data-selected="https://player.vimeo.com/video/386597963" class="plane-wrapper cursor-pointer">
+						<div data-selected="https://player.vimeo.com/video/386597963" class="plane cursor-pointer">
+							<img
+							data-selected="https://player.vimeo.com/video/386597963" src="https://raw.githubusercontent.com/jf-alonso/site/master/img/video-preview/report/festin-de-noel.png" />
+						</div>
+					</div>
+				</div>
+				<div class="sp-pad next-portfolio-link w-100" style="z-index: 1000">
+					<a href="portfolio/report.html" class="arrow-btn text-light" style="font-size: 30px">
+						<i class="fa fa-angle-right"></i>
+						<i class="fa fa-angle-right"></i>
+						<i class="fa fa-angle-right"></i>
+					</a>
+				</div>
+			</div>
+
 		</div>
+
+	</div>
+
+
+	</div>
+
 	</section>
 	<!-- Portfolio section end -->
 
-	<!-- Portfolio section start -->
-	<section class="portfolio-section pb-0 mb-0" id="portfolio">
-		<span class="sp-sub-title pl-3">Categorie</span>
-		<h1 class="sp-title pl-3 text-light h1">Reportages</h1>
-		<div class="portfolio-warp">
-'			<!-- single item -->
-			<div class="single-portfolio set-bg">
-				<a>
-				<iframe height="100%" width="100%" src="https://www.youtube.com/embed/eH1GClvoHq8" height="100%"
-					width="100%" frameborder="0" allowfullscreen></iframe>
-				<!-- <a href="single-work.html" class="portfolio-info"> -->
-				<!-- <div class="pfbg set-bg" data-setbg="https://youtube.com/embed/ovz3ZnfySaI?autoplay=0&controls=1&showinfo=0&autohide=1"></div> -->
-				<!-- <h5 class="text-uppercase">FESTIVALE MELTIN'ART 2019</h5> -->
-				<!-- </a> -->
-			</div>
 
-			<!-- single item -->
-			<div class="single-portfolio set-bg">
-				<a>
-				<iframe height="100%" width="100%"
-					src="https://youtube.com/embed/CRPNcrBAiOc?autoplay=0&controls=1&showinfo=0&autohide=1"
-					frameborder="0" allowfullscreen></iframe>
-				<!-- <iframe class="set-bg" src="https://www.youtube.com/embed/eH1GClvoHq8" width="600" height="360" frameborder="0"  allowfullscreen></iframe> -->
-			</div>
-			<!-- single item -->
-			<div class="single-portfolio set-bg">
-				<a>
-				<iframe height="100%" width="100%" src="https://www.youtube.com/embed/GkIAcYnmph4" frameborder="0"
-					allowfullscreen></iframe>
-				<!-- <iframe class="set-bg" src="https://www.youtube.com/embed/eH1GClvoHq8" width="600" height="360" frameborder="0"  allowfullscreen></iframe> -->
-			</div>'
-
-		</div>
-		<div class="clearfix"></div>
-		<div class="sp-pad next-portfolio-link">
-			<a href="portfolio/report.html" class="arrow-btn text-light" style="font-size: 40px">
-				<i class="fa fa-angle-right"></i>
-				<i class="fa fa-angle-right"></i>
-				<i class="fa fa-angle-right"></i>
-			</a>
-		</div>
-	</section>
 	<!-- Portfolio section end -->
 
 	<!-- Services section start -->
 	<section class="services-section spad" id="services">
-		<div class="container-fluid services-warp">
-			<div class="services-text">
-				<div class="container p-0">
-					<span class="sp-sub-title">Amazing studio</span>
-					<h3 class="sp-title">see What we offer</h3>
-					<p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada feugiat. Praesent
-						malesuada congue magna at finibus. In hac habi tasse platea dictumst. Curabitur rhoncus auctor
-						eleifend.</p>
-					<a href="#" class="site-btn">Read More</a>
-				</div>
-			</div>
+		<div class="container-fluid œ services-warp">
 			<div class="container p-0">
 				<div class="row">
-					<div class="col-xl-8 offset-xl-4">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="icon-box">
-									<i class="flaticon-video-camera"></i>
-									<h4>Video Footages</h4>
-									<p>Suspendisse dictum enim sit amet libero feugiat. Praesent malesuada congue magna
-										at finibus. In hac habitasse platea dictumst. </p>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="icon-box">
-									<i class="flaticon-photo-camera"></i>
-									<h4>Photo Shootings</h4>
-									<p>Congue magna at finibus. In hac habitasse platea dictumst. Curabitur rhoncus
-										auctor eleifend. Fusce venenatis diam urna, eu pharetra arcu.</p>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="icon-box">
-									<i class="flaticon-safebox"></i>
-									<h4>photo albums</h4>
-									<p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada
-										feugiat. Praesent malesuada congue magna at finibus. </p>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="icon-box">
-									<i class="flaticon-idea"></i>
-									<h4>Original ideas</h4>
-									<p>Praesent malesuada congue magna at finibus. In hac habitasse platea dictumst.
-										Curabitur rhoncus auctor eleifend. Fusce venenatis diam urna.</p>
-								</div>
-							</div>
-						</div>
+					<div class="container col-md-12 p-0">
+						<span class="sp-sub-title"> jf alonso</span>
+						<h3 class="sp-title text-light">Moi en quelques mots</h3>
+						<p>C’est en 2016 que je pilote un drone pour la première fois. « Digital native » et avide d'expériences nouvelles, mes premiers rush m’amène vite à devoir me former plus en profondeur à l’image. J'ai donc commencé à monter, tourner, éclairer puis j'ai rapidement appris la pratique vidéo sous toutes ses formes avant d'intégrer en 2017 la Formation de l’Institut des Métiers de la Communication et de l’Audiovisuels pour affiner mon savoir faire et me professionnaliser. Je continue à multiplier les expériences que ce soit dans le spectacle, la vidéo institutionnelle ou bien commerciale... Je dispose depuis 2018 d’un permis drone et d’un matériel professionnel polyvalent qui me permet de réaliser des projets de grande envergure en toute autonomie au sol comme dans les airs.</p>
 					</div>
 				</div>
 			</div>
@@ -402,150 +314,7 @@
 	<script src="js/TweenMax.min.js"></script>
 	<script src="js/demo4.js"></script>
 	<script src="js/curtains.js"></script>
-	<script id="plane-vs" type="x-shader/x-vertex">
-			precision mediump float;
-
-			// those are the mandatory attributes that the lib sets
-			attribute vec3 aVertexPosition;
-			attribute vec2 aTextureCoord;
-
-			// those are mandatory uniforms that the lib sets and that contain our model view and projection matrix
-			uniform mat4 uMVMatrix;
-			uniform mat4 uPMatrix;
-
-			// our texture matrix that will handle image cover
-			uniform mat4 uTextureMatrix0;
-
-			// if you want to pass your vertex and texture coords to the fragment shader
-			varying vec3 vVertexPosition;
-			varying vec2 vTextureCoord;
-
-			void main() {
-				vec3 vertexPosition = aVertexPosition;
-
-				gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
-
-				// set the varyings
-				// here we use our texture matrix to calculate te accurate texture coords
-				vTextureCoord = (uTextureMatrix0 * vec4(aTextureCoord, 0.0, 1.0)).xy;
-				vVertexPosition = vertexPosition;
-			}
-        </script>
-	<script id="plane-fs" type="x-shader/x-fragment">
-			precision mediump float;
-
-			// get our varyings
-			varying vec3 vVertexPosition;
-			varying vec2 vTextureCoord;
-
-			// the uniform we declared inside our javascript
-			uniform float uTime;
-
-			// our texture sampler (default name, to use a different name please refer to the documentation)
-			uniform sampler2D uSampler0;
-
-			void main() {
-				vec2 textureCoord = vec2(vTextureCoord.x, vTextureCoord.y);
-
-				// displace our pixels along the X axis based on our time uniform
-				// textures coords are ranging from 0.0 to 1.0 on both axis
-				textureCoord.x += sin(textureCoord.y * 25.0) * cos(textureCoord.x * 25.0) * (cos(uTime / 50.0)) / 25.0;
-
-				gl_FragColor = texture2D(uSampler0, textureCoord);
-			}
-        </script>
-
-
-	<script type="text/javascript">
-		window.addEventListener("load", function () {
-			// set up our WebGL context and append the canvas to our wrapper
-			var webGLCurtain = new Curtains({
-				container: "canvas"
-			});
-
-			// get our plane element
-			var planeElement = document.getElementsByClassName("plane")[0];
-
-			// set our initial parameters (basic uniforms)
-			var params = {
-				vertexShaderID: "plane-vs", // our vertex shader ID
-				fragmentShaderID: "plane-fs", // our framgent shader ID
-				uniforms: {
-					time: {
-						name: "uTime", // uniform name that will be passed to our shaders
-						type: "1f", // this means our uniform is a float
-						value: 0,
-					},
-				}
-			};
-
-			// create our plane mesh
-			var plane = webGLCurtain.addPlane(planeElement, params);
-
-			if (plane) {
-				// set up our basic methods
-				plane.onRender(function () { // fired at each requestAnimationFrame call
-					plane.uniforms.time.value++; // update our time uniform value
-				});
-			}
-
-		});
-	</script>
-
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141413267-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-
-		gtag('config', 'UA-141413267-1');
-	</script>
-	<script>
-		let titles = ["Festival Meltin'art 2019", "Koba Lad / 100 Blaze"];
-		let image = 'https://images.vexels.com/media/users/3/131784/isolated/preview/a9ff82db0cf438516e13b8c3bf918a00-play-flat-icon-by-vexels.png';
-
-		let previewSources = [
-			'https://i.vimeocdn.com/video/851166824_780x439.jpg',
-			'https://instagram.fkun1-1.fna.fbcdn.net/v/t51.2885-15/e35/58019630_2376714979273965_2668383843384919178_n.jpg?_nc_ht=instagram.fkun1-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=qwUyQxAJU9AAX9SGsr2&oh=4eb5aeb86262ebdf518ce6eb102237e2&oe=5E9AC7E4'
-		];
-
-		let videoSources = [
-			'https://player.vimeo.com/video/386548039',
-			'https://player.vimeo.com/video/332690072'
-		];
-
-		let carousel_index = 0;
-
-		$('.next').click(function () {
-			carousel_index += 1;
-			if (carousel_index > titles.length - 1) {
-				carousel_index = 0;
-			}
-			$('.carousel_title').html(titles[carousel_index]);
-			$('.carousel_image').attr('src', previewSources[carousel_index]);
-			$('iframe').attr('src', videoSources[carousel_index]);
-			reload_js('js/curtains.js');
-		});
-
-
-		$('.previous').click(function () {
-			if (carousel_index != 0) {
-				carousel_index -= 1;
-			}
-			$('.carousel_title').html(titles[carousel_index]);
-			$('.carousel_image').html(previewSources[carousel_index]);
-			$('iframe').attr('src', videoSources[carousel_index]);
-			reload_js('js/curtains.js');
-		});
-
-		function reload_js(src) {
-			$('script[src="' + src + '"]').remove();
-			$('<script>').attr('src', src).appendTo('head');
-		}
-	</script>
-
+	<script src="ajax-navigation-with-plane-removal/js/ajax.nav.setup.js"></script>
 </body>
 
 </html>
